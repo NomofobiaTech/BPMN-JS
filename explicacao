@@ -1,0 +1,67 @@
+Função esperar(tempo, descricao)
+Objetivo: Simula um atraso para representar o tempo necessário para realizar uma tarefa.
+Parâmetros:
+tempo: Tempo em milissegundos para o delay.
+descricao: Uma descrição da tarefa que está sendo simulada.
+Funcionamento:
+Exibe uma mensagem de início (Iniciando: descrição).
+Usa setTimeout para atrasar a execução por um tempo definido.
+Após o tempo, exibe uma mensagem de conclusão (Concluído: descrição) e resolve a Promise.
+Funções do processo
+Cada função representa uma etapa do processo de fazer o bolo. Todas são assíncronas (async) para que possam usar await e esperar pela conclusão de outras tarefas. Algumas têm validações antes de realizar a tarefa, simulando condições que podem impedir a execução.
+
+pegarIngredientes()
+
+Verifica se os ingredientes estão disponíveis (ingredientesDisponiveis).
+Se não estiverem disponíveis, interrompe o processo com um retorno false.
+Caso contrário, simula pegar os ingredientes com a função esperar.
+prepararLiquidificador()
+
+Verifica se o liquidificador está disponível (liquidificadorDisponivel).
+Se não estiver disponível, interrompe o processo.
+Caso esteja, simula a preparação do liquidificador.
+adicionarIngredientesNoLiquidificador()
+
+Simula a adição dos ingredientes no liquidificador.
+baterTudo()
+
+Verifica se os ingredientes estão prontos para serem batidos (prontoParaBater).
+Caso estejam, simula o ato de bater tudo no liquidificador.
+prepararForma()
+
+Simula a preparação da forma com manteiga e farinha.
+preaquecerForno()
+
+Verifica se o forno está funcionando (fornoFuncionando).
+Caso esteja, simula o pré-aquecimento a 180°C.
+assar()
+
+Simula o tempo necessário para assar o bolo, multiplicando o tempo em minutos (tempoAssar) por 1000 para converter em milissegundos.
+prepararCobertura()
+
+Verifica se a cobertura está pronta (coberturaPronta).
+Caso esteja, simula o processo de preparar uma cobertura cremosa.
+espalharCoberturaNoBolo()
+
+Simula o processo de espalhar a cobertura sobre o bolo.
+Função Principal: fazerBolo()
+Objetivo: Controla todo o fluxo do processo de fazer o bolo.
+Passos:
+Exibe uma mensagem de início do processo.
+Executa cada etapa em sequência com await, parando o processo caso alguma etapa retorne false.
+Após assar o bolo, tenta preparar e aplicar a cobertura:
+Se a cobertura for preparada com sucesso, aplica no bolo.
+Caso contrário, o bolo é concluído sem cobertura.
+Exibe uma mensagem final indicando o sucesso do processo.
+Execução
+A última linha, fazerBolo();, chama a função principal para executar o processo de forma sequencial.
+
+Simulação de Tempo
+O uso da função esperar com tempos diferentes (1000ms, 500ms, etc.) adiciona realismo ao código, simulando o tempo necessário para cada tarefa. Por exemplo:
+
+Pegando ingredientes demora 1 segundo.
+Batendo no liquidificador demora 2 segundos.
+Assar demora 40 segundos.
+Condições
+Cada etapa verifica se as condições necessárias estão atendidas (ex.: ingredientesDisponiveis, liquidificadorDisponivel).
+Caso uma condição não seja atendida, o processo é interrompido, simulando um erro real.
